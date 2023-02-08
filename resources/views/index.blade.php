@@ -45,17 +45,9 @@
                 <div class="form-group my-4">
                     <label for="case">حدد نوع الحالة <span style="color: red">* </span></label>
                     <select name="type" class="form-control" id="cases" required>
-                        <option value="1" selected>انقاض، اشخاص عالقين تحت الانقاض.</option>
-                        <option value="2">مراكز يتوفر فيها حاجات اساسية مثل الطعام والشراب</option>
-                        <option value="3">مراكز يتوفر فيها ملابس وتدفئة</option>
-                        <option value="4">فريق استجابة، فرق تطوعية</option>
-                        <option value="5">مراكز ايواء</option>
-                        <option value="6">مراكز يتوفر فيها مواصلات</option>
-                        <option value="7">مراكز أمنة</option>
-                        <option value="8">مراكز غسيل كلية</option>
-                        <option value="9">مراكز ونقاط طبية</option>
-                        <option value="10">تقديم المساعدة والتطوع</option>
-                        <option value="11">أخرى</option>
+                        @foreach ($case_types as $case_type)
+                            <option value="{{ $case_type->value }}"> {{ $case_type->getTranslation() }}</option>
+                        @endforeach
                     </select>
                 </div>
 
