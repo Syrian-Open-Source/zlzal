@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use TCG\Voyager\Facades\Voyager;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,12 +16,12 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 Route::post('/case', [\App\Http\Controllers\CasesController::class, 'store'])->name('cases.store');
 Route::get('/map', [\App\Http\Controllers\CasesController::class, 'map'])->name('cases.map');
 
 Route::group(['prefix' => 'admin'], function () {
-Route::get('/export', [\App\Http\Controllers\CasesController::class, 'export'])->name('cases.export');
+    Route::get('/export', [\App\Http\Controllers\CasesController::class, 'export'])->name('cases.export');
     Voyager::routes();
 });
