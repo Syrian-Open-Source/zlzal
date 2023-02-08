@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CasesController;
+use App\Http\Controllers\IndexController;
 use Illuminate\Support\Facades\Route;
 use TCG\Voyager\Facades\Voyager;
 
@@ -15,13 +17,11 @@ use TCG\Voyager\Facades\Voyager;
 */
 
 
-Route::get('/', function () {
-    return view('index');
-});
-Route::post('/case', [\App\Http\Controllers\CasesController::class, 'store'])->name('cases.store');
-Route::get('/map', [\App\Http\Controllers\CasesController::class, 'map'])->name('cases.map');
+Route::get('/', [IndexController::class,'index']);
+Route::post('/case', [CasesController::class, 'store'])->name('cases.store');
+Route::get('/map', [CasesController::class, 'map'])->name('cases.map');
 
 Route::group(['prefix' => 'admin'], function () {
-    Route::get('/export', [\App\Http\Controllers\CasesController::class, 'export'])->name('cases.export');
+    Route::get('/export', [CasesController::class, 'export'])->name('cases.export');
     Voyager::routes();
 });
