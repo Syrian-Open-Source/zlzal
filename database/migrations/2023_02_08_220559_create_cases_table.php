@@ -20,6 +20,7 @@ class CreateCasesTable extends Migration
             $table->string("city");
             $table->string("area");
             $table->string("street");
+            $table->string("phone");
             $table->string("description");
             $table->string("type");
             $table->string("medical_point_status");
