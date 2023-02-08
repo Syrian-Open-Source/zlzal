@@ -18,12 +18,6 @@ class Cases extends Model
         'street',
         'description',
         'type',
-        'type',
         'medical_point_status',
     ];
-
-    public function getCreatedAtAttribute($val){
-        return Carbon::parse($val)->addHours(3)->format('Y-m-d H:i:s');
-    }
-
 }
