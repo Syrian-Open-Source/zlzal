@@ -9,21 +9,23 @@ use Illuminate\Http\Request;
 class CasesController extends Controller
 {
 
-    public function store(Request $request){
+    public function store(Request $request)
+    {
         Cases::create($request->all());
 
         return redirect()->back()->with('success', 'تم تخزين البيانات بنجاح');
     }
 
-    public function map(){
+    public function map()
+    {
 
-        $data = Cases::where('display_on_map', 1)->get();
+        $data =Cases::where('display_on_map', 1)->get();
 
         return view('map', ['data' => $data]);
     }
 
-    public function export(){
+    public function export()
+    {
         return (new CasesExport())->download('result.xlsx');
-
     }
 }
