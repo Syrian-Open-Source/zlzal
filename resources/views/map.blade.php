@@ -68,17 +68,27 @@
             // Add markers to the map
             data.forEach(item => {
                 let iconUrl =
-                    'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png';
+                'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png';
                 let color = 'green'
                 if (item.type == 1) {
                     iconUrl = 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png';
                     color = 'red'
                 }
-                if (item.type >= 2 || item.typeKey <= 7) {
+                if (item.type >= 2 || item.type <= 6) {
                     iconUrl =
                         'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-yellow.png';
                     color = 'yellow'
                 }
+                if (item.type == 7 || item.type == 8) {
+                    if (item.active) {
+                        iconUrl =
+                            'https://cdn.iconscout.com/icon/premium/png-512-thumb/first-aids-bag-2299218-1920340.png?f=avif&w=512';
+                    } else {
+                        iconUrl =
+                            'https://cdn.iconscout.com/icon/premium/png-512-thumb/first-aids-bag-2299387-1920490.png?f=avif&w=512';
+                    }
+                }
+
                 var greenIcon = L.icon({
                     iconUrl: iconUrl,
                     iconSize: [20, 25],
