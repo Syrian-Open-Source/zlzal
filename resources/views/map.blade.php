@@ -119,16 +119,16 @@
                 }
                 marker1.bindPopup(`
         <div class='marker-view'>
-            <h3 class='rtl'>${titles[item.type]}</h3>
-            <h5 class='rtl'>الاسم: ${item.name}</h5>
+            <h3 class='rtl'>${titles[item.type]??''}</h3>
+            <h5 class='rtl'>الاسم: ${item.name??''}</h5>
             <hr>
-            <h5 class='rtl'>العنوان: ${item.city} - ${item.area} - ${item.street}</h5>
+            <h5 class='rtl'>العنوان: ${item.city??''} - ${item.area??''} - ${item.street??''}</h5>
             <hr>
-            <h5 class='rtl'>معلومات التواصل: ${item.phone}</h5>
+            <h5 class='rtl'>معلومات التواصل: ${item.phone??''}</h5>
             <hr>
-            <h5 class='rtl'>الوصف: ${item.description}</h5>
+            <h5 class='rtl'>الوصف: ${item.description??''}</h5>
             <hr>
-            <h5 class='rtl'>معلومات اضافية: ${item.more_info}</h5>
+            <h5 class='rtl'>معلومات اضافية: ${item.more_info??''}</h5>
             <hr>
         </div>
         `);
